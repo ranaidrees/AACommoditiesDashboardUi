@@ -11,11 +11,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { CardComponent } from './card/card.component';
+import { NgChartsModule } from 'ng2-charts';
+import { HistoricalPnlChartComponent } from './charts/historical-pnl-chart/historical-pnl-chart.component';
+//import { HistoricalPositionChartComponent } from './charts/historical-position-chart/historical-position-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    DashboardComponent,
+    CardComponent,
+    HistoricalPnlChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +37,11 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
