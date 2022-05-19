@@ -18,6 +18,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { CardComponent } from './card/card.component';
 import { NgChartsModule } from 'ng2-charts';
 import { HistoricalPnlChartComponent } from './charts/historical-pnl-chart/historical-pnl-chart.component';
+import { MiniCardComponent } from './mini-card/mini-card.component';
+import { TradeTableComponent } from './trade-table/trade-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 //import { HistoricalPositionChartComponent } from './charts/historical-position-chart/historical-position-chart.component';
 
 @NgModule({
@@ -27,6 +32,8 @@ import { HistoricalPnlChartComponent } from './charts/historical-pnl-chart/histo
     DashboardComponent,
     CardComponent,
     HistoricalPnlChartComponent,
+    MiniCardComponent,
+    TradeTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,10 @@ import { HistoricalPnlChartComponent } from './charts/historical-pnl-chart/histo
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    NgChartsModule
+    NgChartsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,29 +1,28 @@
 <!--dash.component.html-->
 <div class="grid-container">
     <h1 class="mat-h1">Dashboard</h1>
-    <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+    <mat-grid-list cols="4" rowHeight="200px">
         <!--Mini Cards-->
-        <mat-grid-tile *ngFor="let i of [1, 2, 3, 4]" [colspan]="( cardLayout | async )?.miniCard.cols"
-            [rowspan]="( cardLayout | async )?.miniCard.rows">
-            <app-card title="Card {{i}}">
-                <div>Mini Card Content Here</div>
-            </app-card>
+        <mat-grid-tile *ngFor="let mc of miniCardData" [colspan]="1"
+            [rowspan]="1">
+            <app-mini-card [title]="mc.title" [textValue]="mc.textValue" [value]="mc.value" [color]="mc.color"
+                [percentValue]="mc.percentValue"></app-mini-card>
         </mat-grid-tile>
         <!--Charts-->
-        <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+        <mat-grid-tile [colspan]="2" [rowspan]="2">
             <app-card title="Monthly Revenue">
                 <app-historical-pnl-chart></app-historical-pnl-chart>
             </app-card>
-         </mat-grid-tile>
-         <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="2">
             <app-card title="Product Sales">
                 <app-historical-pnl-chart></app-historical-pnl-chart>
             </app-card>
-         </mat-grid-tile>
+        </mat-grid-tile>
         <!--Table-->
-        <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
+        <mat-grid-tile [colspan]="4" [rowspan]="2">
             <app-card title="Card 9">
-                <div>Table Content Here</div>
+                <app-trade-table *ngIf="myList.length>0" [tradeActions]="myList"></app-trade-table>
             </app-card>
         </mat-grid-tile>
     </mat-grid-list>
