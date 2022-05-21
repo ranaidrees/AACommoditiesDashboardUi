@@ -15,19 +15,19 @@ export class DashboardComponent implements OnInit {
     myList: TradeAction[] = [];
     dashboard : Observable<Dashboard>
     ngOnInit(): void {
-        this.dashboard = this.dashboardDataService.dashboard;
-        this.dashboardDataService.loadAll();
-        this.dashboard.subscribe(dashboard => {
-            const test = [...dashboard.tradeActions];
-            this.myList = test;
-        });
+        // this.dashboard = this.dashboardDataService.dashboard;
+        // this.dashboardDataService.loadAll();
+        // this.dashboard.subscribe(dashboard => {
+        //     const test = [...dashboard.tradeActions];
+        //     this.myList = test;
+        // });
     }
 
     miniCardData = [{ title: 'title', textValue: 'textValue', value: '3', color: 'red', percentValue: '30' },
     { title: 'title', textValue: 'textValue', value: '3', color: 'red', percentValue: '30' },
     { title: 'title', textValue: 'textValue', value: '3', color: 'red', percentValue: '30' },
     { title: 'title', textValue: 'textValue', value: '3', color: 'red', percentValue: '30' }];
-    
+
 
     constructor(private dashboardDataService: DashboardDataService) { }
 }

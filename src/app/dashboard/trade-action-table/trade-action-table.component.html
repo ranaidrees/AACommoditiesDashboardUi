@@ -1,0 +1,55 @@
+<div layout="row" class="layout-container">
+    <div class="align-left">
+        <mat-form-field appearance="fill">
+            <mat-label>Model</mat-label>
+            <mat-select (selectionChange)="onChangeModel($event.value)" name="model">
+                <mat-option [value]="''">All</mat-option>
+                <mat-option *ngFor="let model of modelEnumKeys" [value]="model">
+                    {{models[model]}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="align-left">
+        <mat-form-field appearance="fill">
+            <mat-label>Commodity</mat-label>
+            <mat-select (selectionChange)="onChangeCommodity($event.value)" name="commodity">
+                <mat-option [value]="''">All</mat-option>
+                <mat-option *ngFor="let commodity of commodityEnumKeys" [value]="commodity">
+                    {{commodities[commodity]}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+<ng-template #noRecords>No Records Found, Please try another search criteria.</ng-template>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="full-width-table">
+            <!-- commodityModelName Column -->
+            <ng-container matColumnDef="commodityModelName">
+                <th mat-header-cell *matHeaderCellDef> Model Name </th>
+                <td class="align-left" mat-cell *matCellDef="let element"> {{element.commodityModelName}} </td>
+            </ng-container>
+
+            <!-- commodityName Column -->
+            <ng-container matColumnDef="commodityName">
+                <th mat-header-cell *matHeaderCellDef> Commodity Name </th>
+                <td class="align-left" mat-cell *matCellDef="let element"> {{element.commodityName}} </td>
+            </ng-container>
+
+            <!-- price Column -->
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef> Price </th>
+                <td class="align-left" mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="newTradeAction">
+                <th mat-header-cell *matHeaderCellDef> New Trade Action </th>
+                <td class="align-left" mat-cell *matCellDef="let element"> {{element.newTradeAction}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator #paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+    </div>

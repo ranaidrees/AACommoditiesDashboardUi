@@ -20,9 +20,10 @@
             </app-card>
         </mat-grid-tile>
         <!--Table-->
-        <mat-grid-tile [colspan]="4" [rowspan]="2">
-            <app-card title="Card 9">
-                <app-trade-table *ngIf="myList.length>0" [tradeActions]="myList"></app-trade-table>
+        <mat-grid-tile [colspan]="4" [rowspan]="3">
+            <app-card title="Trades">
+                <app-trade-action-table></app-trade-action-table>
+
             </app-card>
         </mat-grid-tile>
     </mat-grid-list>
