@@ -9,6 +9,7 @@ export class MiniCardComponent {
   @Input() icon: string;
   @Input() title: string;
   @Input() value: number;
+  @Input() textValue: number;
   @Input() color: string;
   @Input() isIncrease: boolean;
   @Input() isCurrency: boolean;

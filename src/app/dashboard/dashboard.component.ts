@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { Dashboard } from './dashboard-model';
 import { Indicators } from './Indicators/indicators-model';
 import { ChartDataset } from './Indicators/charts/chart-dataset-model';
+import { Metric } from './Indicators/mini-card/metric-model';
 
 @Component({
     selector: 'app-dashboard',
@@ -19,6 +20,7 @@ export class DashboardComponent implements OnInit {
     pnlDataset: ChartDataset[];
     positionDataset: ChartDataset[];
     labels: string[];
+    metrics: Metric[];
 
     ngOnInit(): void {
         this.indicators = this.dashboardDataService.indicatorsData;
@@ -27,6 +29,7 @@ export class DashboardComponent implements OnInit {
             this.pnlDataset = indicators.charts.datasets[0];
             this.positionDataset = indicators.charts.datasets[1];
             this.labels = indicators.charts.labels;
+            this.metrics = indicators.metrics;
         });
     }
 

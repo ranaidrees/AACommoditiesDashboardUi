@@ -3,20 +3,20 @@
     <h1 class="mat-h1">Dashboard</h1>
     <mat-grid-list cols="4" rowHeight="200px">
         <!--Mini Cards-->
-        <mat-grid-tile *ngFor="let mc of miniCardData" [colspan]="1"
+        <mat-grid-tile *ngFor="let m of metrics" [colspan]="1"
             [rowspan]="1">
-            <app-mini-card [title]="mc.title" [textValue]="mc.textValue" [value]="mc.value" [color]="mc.color"
-                [percentValue]="mc.percentValue"></app-mini-card>
+            <app-mini-card [title]="m.value" [textValue]="m.aggregateOperation" [value]="m.name"
+                [percentValue]="m.value"></app-mini-card>
         </mat-grid-tile>
         <!--Charts-->
         <mat-grid-tile [colspan]="2" [rowspan]="2">
             <app-card title="Monthly Revenue">
-                <app-historical-line-chart *ngIf="this.labels.length > 0" [labels]="labels" [chartDataset]="pnlDataset"></app-historical-line-chart>
+                <app-historical-line-chart *ngIf="this.labels?.length > 0" [labels]="labels" [chartDataset]="pnlDataset"></app-historical-line-chart>
             </app-card>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="2" [rowspan]="2">
             <app-card title="Product Sales">
-                <app-historical-line-chart *ngIf="this.labels.length > 0" [labels]="labels" [chartDataset]="positionDataset"></app-historical-line-chart>
+                <app-historical-line-chart *ngIf="this.labels?.length > 0" [labels]="labels" [chartDataset]="positionDataset"></app-historical-line-chart>
             </app-card>
         </mat-grid-tile>
         <!--Table-->
