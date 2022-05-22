@@ -26,6 +26,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { TradeActionTableComponent } from './dashboard/trade-action-table/trade-action-table.component';
 import { HistoricalLineChartComponent } from './dashboard/Indicators/charts/historical-line-chart/historical-line-chart.component';
 import { CardComponent } from './dashboard/card/card.component';
+import { AuthenticationModule } from './shared';
+import { LoginModule } from './login/login.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
     declarations: [
@@ -39,6 +42,8 @@ import { CardComponent } from './dashboard/card/card.component';
     ],
     imports: [
         BrowserModule,
+        AuthenticationModule,
+        LoginModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         LayoutModule,

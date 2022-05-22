@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Dashboard } from './dashboard-model';
 import { TradeAction } from './trade-action-model';
 import { cloneDeep } from 'lodash';
 import { Indicators } from './Indicators/indicators-model';
+import { AuthenticationService } from '../shared';
+import { Options } from 'selenium-webdriver';
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +19,7 @@ private indicators: Subject<Indicators>;
         indicators: Indicators;
     };
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private authenticationService: AuthenticationService) {
         this.dataStore = { indicators: {charts: null, metrics: null }};
         this.indicators = new Subject<Indicators>();
     }
@@ -29,7 +31,13 @@ private indicators: Subject<Indicators>;
     loadAll(): void {
         const indicatorsUrl = 'http://localhost:50000/api/indicators';
 
-        this.http.get<Indicators>(indicatorsUrl)
+        // Refactor to AuthInterceptor
+        const token = this.authenticationService.getAccessToken();
+        const httpHeaders = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+        const httpOptions = {
+            headers: httpHeaders
+          };
+        this.http.get<Indicators>(indicatorsUrl, httpOptions)
             .subscribe(data => {
                 this.dataStore.indicators = data;
               //  const clonedDatastore = cloneDeep(this.dataStore);

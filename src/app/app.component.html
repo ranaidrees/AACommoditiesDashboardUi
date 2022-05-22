@@ -1,1 +1,19 @@
-<app-nav></app-nav>
+<mat-toolbar color="primary">
+    <h2>AA Dashboard</h2>
+    <span class="example-spacer"></span>
+    <span flex></span>
+    <div>
+        <mat-icon>person</mat-icon>
+        <div *ngIf="authorized"> {{username}}
+            <button (click)="logout()">
+                Logout
+            </button>
+
+        </div>
+        <app-login *ngIf="!authorized"></app-login>
+    </div>
+
+</mat-toolbar>
+<ng-container>
+    <router-outlet></router-outlet>
+</ng-container>

@@ -1,7 +1,8 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
+import { AuthenticationService } from 'src/app/shared';
 import { TradeAction } from '../trade-action-model';
 
 @Injectable({
@@ -14,7 +15,7 @@ export class TradeActionTableService {
         _tradeActions: TradeAction[];
     }
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private authenticationService: AuthenticationService) {
         this.dataStore = { _tradeActions: [] };
         this._tradeActions = new BehaviorSubject<TradeAction[]>([]);
     }
@@ -24,6 +25,12 @@ export class TradeActionTableService {
     }
 
     loadAll(selectedModel?: string, selectedCommodity?: string) {
+
+        const token = this.authenticationService.getAccessToken();
+        const httpHeaders = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+        const httpOptions = {
+            headers: httpHeaders
+          };
         const tradeActionUrl = 'http://localhost:50000/api/tradeactions'
 
         let params = new HttpParams();
