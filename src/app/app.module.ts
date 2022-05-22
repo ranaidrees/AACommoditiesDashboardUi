@@ -24,42 +24,42 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { TradeActionTableComponent } from './dashboard/trade-action-table/trade-action-table.component';
-import { HistoricalPnlChartComponent } from './dashboard/Indicators/charts/historical-pnl-chart/historical-pnl-chart.component';
+import { HistoricalLineChartComponent } from './dashboard/Indicators/charts/historical-line-chart/historical-line-chart.component';
 import { CardComponent } from './dashboard/card/card.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavComponent,
-    DashboardComponent,
-    CardComponent,
-    HistoricalPnlChartComponent,
-    MiniCardComponent,
-    TradeActionTableComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    LayoutModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
-    NgChartsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavComponent,
+        DashboardComponent,
+        CardComponent,
+        HistoricalLineChartComponent,
+        MiniCardComponent,
+        TradeActionTableComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        LayoutModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        MatGridListModule,
+        MatCardModule,
+        MatMenuModule,
+        NgChartsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

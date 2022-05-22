@@ -11,12 +11,12 @@
         <!--Charts-->
         <mat-grid-tile [colspan]="2" [rowspan]="2">
             <app-card title="Monthly Revenue">
-                <app-historical-pnl-chart></app-historical-pnl-chart>
+                <app-historical-line-chart *ngIf="this.labels.length > 0" [labels]="labels" [chartDataset]="pnlDataset"></app-historical-line-chart>
             </app-card>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="2" [rowspan]="2">
             <app-card title="Product Sales">
-                <app-historical-pnl-chart></app-historical-pnl-chart>
+                <app-historical-line-chart *ngIf="this.labels.length > 0" [labels]="labels" [chartDataset]="positionDataset"></app-historical-line-chart>
             </app-card>
         </mat-grid-tile>
         <!--Table-->

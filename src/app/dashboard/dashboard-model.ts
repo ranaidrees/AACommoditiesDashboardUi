@@ -1,7 +1,8 @@
+import { Indicators } from "./Indicators/indicators-model";
 import { TradeAction } from "./trade-action-model";
 
 export interface Dashboard {
-    tradeActions: TradeAction[];
+    indicators: Indicators;
     pnlMetric: number;
     drawDownYtd: number;
 }

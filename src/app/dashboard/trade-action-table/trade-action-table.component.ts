@@ -29,6 +29,7 @@ export class TradeActionTableComponent implements OnInit, AfterViewInit {
     modelEnumKeys = [];
     displayedColumns = ['commodityModelName', 'commodityName', 'price', 'newTradeAction'];
     constructor(private tradeActionTableService: TradeActionTableService) {
+        // To Do: Fetch the data from API to be in synch with data changes in Model and Commodity table
         this.commodityEnumKeys = Object.keys(this.commodities).filter(f => !isNaN(Number(f)));
         this.modelEnumKeys = Object.keys(this.models).filter(f => !isNaN(Number(f)));
         this.selectedModel = '';

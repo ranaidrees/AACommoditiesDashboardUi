@@ -1,42 +1,42 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Dashboard } from './dashboard-model';
 import { TradeAction } from './trade-action-model';
 import { cloneDeep } from 'lodash';
-
+import { Indicators } from './Indicators/indicators-model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class DashboardDataService {
-    private _dashboard: BehaviorSubject<Dashboard>;
+//    private dashboard: BehaviorSubject<Dashboard>;
+private indicators: Subject<Indicators>;
 
     private dataStore: {
-        dashboard: Dashboard;
-    }
+        indicators: Indicators;
+    };
 
     constructor(private http: HttpClient) {
-        this.dataStore = { dashboard: {drawDownYtd:1, pnlMetric:1, tradeActions:[]} };
-        this._dashboard = new BehaviorSubject<Dashboard>({drawDownYtd:1, pnlMetric:1, tradeActions:[]});
+        this.dataStore = { indicators: {charts: null, metrics: null }};
+        this.indicators = new Subject<Indicators>();
     }
 
-    get dashboard(): Observable<Dashboard> {
-        return this._dashboard.asObservable();
+    get indicatorsData(): Observable<Indicators> {
+        return this.indicators.asObservable();
     }
 
-    loadAll() {
-        const tradeActionUrl = 'http://localhost:50000/api/tradeactions'
+    loadAll(): void {
+        const indicatorsUrl = 'http://localhost:50000/api/indicators';
 
-        this.http.get<TradeAction[]>(tradeActionUrl)
+        this.http.get<Indicators>(indicatorsUrl)
             .subscribe(data => {
-                this.dataStore.dashboard.tradeActions = data;
-                this.dataStore.dashboard.pnlMetric = 1;
-                this.dataStore.dashboard.drawDownYtd = 2;
-                var clonedDatastore = cloneDeep(this.dataStore)
-                this._dashboard.next(clonedDatastore.dashboard);
+                this.dataStore.indicators = data;
+              //  const clonedDatastore = cloneDeep(this.dataStore);
+              //  this.indicators.next(clonedDatastore.indicators);
+                this.indicators.next(this.dataStore.indicators);
             }, error => {
-                console.log("Failed to fetch dashboard")
+                console.log('Failed to fetch dashboard');
             });
     }
 }
