@@ -5,23 +5,23 @@
         <!--Mini Cards-->
         <mat-grid-tile *ngFor="let m of metrics" [colspan]="1"
             [rowspan]="1">
-            <app-mini-card [title]="m.value" [textValue]="m.aggregateOperation" [value]="m.name"
-                [percentValue]="m.value"></app-mini-card>
+            <app-metric [title]="m.value" [textValue]="m.aggregateOperation" [value]="m.name"
+                [percentValue]="m.value"></app-metric>
         </mat-grid-tile>
         <!--Charts-->
         <mat-grid-tile [colspan]="2" [rowspan]="2">
-            <app-card title="Monthly Revenue">
+            <app-card title="Historical PNL Chart">
                 <app-historical-line-chart *ngIf="this.labels?.length > 0" [labels]="labels" [chartDataset]="pnlDataset"></app-historical-line-chart>
             </app-card>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="2" [rowspan]="2">
-            <app-card title="Product Sales">
+            <app-card title="Historical Position Chart">
                 <app-historical-line-chart *ngIf="this.labels?.length > 0" [labels]="labels" [chartDataset]="positionDataset"></app-historical-line-chart>
             </app-card>
         </mat-grid-tile>
         <!--Table-->
         <mat-grid-tile [colspan]="4" [rowspan]="3">
-            <app-card title="Trades">
+            <app-card title="Trade Action Data">
                 <app-trade-action-table></app-trade-action-table>
 
             </app-card>

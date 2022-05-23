@@ -16,7 +16,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgChartsModule } from 'ng2-charts';
-import { MiniCardComponent } from './dashboard/Indicators/mini-card/mini-card.component';
+import { MetricCardComponent } from './dashboard/Indicators/metrics/metric.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -37,7 +37,7 @@ import { LoginComponent } from './login/login.component';
         DashboardComponent,
         CardComponent,
         HistoricalLineChartComponent,
-        MiniCardComponent,
+        MetricCardComponent,
         TradeActionTableComponent,
     ],
     imports: [

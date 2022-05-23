@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { Dashboard } from './dashboard-model';
 import { Indicators } from './Indicators/indicators-model';
 import { ChartDataset } from './Indicators/charts/chart-dataset-model';
-import { Metric } from './Indicators/mini-card/metric-model';
+import { Metric } from './Indicators/metrics/metric-model';
 
 @Component({
     selector: 'app-dashboard',
