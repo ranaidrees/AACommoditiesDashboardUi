@@ -20,7 +20,7 @@ export class AppComponent {
     }
     login(): void {
         this.authenticationService.login().subscribe(x=>{
-            // location.reload();
+             location.reload();
         });
 
     }

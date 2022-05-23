@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { Dashboard } from './dashboard-model';
-import { TradeAction } from './trade-action-model';
-import { cloneDeep } from 'lodash';
+import { Observable, Subject } from 'rxjs';
 import { Indicators } from './Indicators/indicators-model';
 import { AuthenticationService } from '../shared';
-import { Options } from 'selenium-webdriver';
 
 @Injectable({
     providedIn: 'root'
 })
 export class DashboardDataService {
-//    private dashboard: BehaviorSubject<Dashboard>;
 private indicators: Subject<Indicators>;
 
     private dataStore: {
@@ -40,8 +35,6 @@ private indicators: Subject<Indicators>;
         this.http.get<Indicators>(indicatorsUrl, httpOptions)
             .subscribe(data => {
                 this.dataStore.indicators = data;
-              //  const clonedDatastore = cloneDeep(this.dataStore);
-              //  this.indicators.next(clonedDatastore.indicators);
                 this.indicators.next(this.dataStore.indicators);
             }, error => {
                 console.log('Failed to fetch dashboard');

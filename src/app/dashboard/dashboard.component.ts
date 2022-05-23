@@ -33,11 +33,5 @@ export class DashboardComponent implements OnInit {
         });
     }
 
-    miniCardData = [{ title: 'title', textValue: 'textValue', value: '3', color: 'red', percentValue: '30' },
-    { title: 'title', textValue: 'textValue', value: '3', color: 'red', percentValue: '30' },
-    { title: 'title', textValue: 'textValue', value: '3', color: 'red', percentValue: '30' },
-    { title: 'title', textValue: 'textValue', value: '3', color: 'red', percentValue: '30' }];
-
-
     constructor(private dashboardDataService: DashboardDataService) { }
 }

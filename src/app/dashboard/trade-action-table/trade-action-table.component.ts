@@ -19,7 +19,7 @@ export class TradeActionTableComponent implements OnInit, AfterViewInit {
     @ViewChild('paginator') paginator: MatPaginator;
     @ViewChild('paginatorPageSize') paginatorPageSize: MatPaginator;
 
-    tradeActiona$: Observable<TradeAction[]>;
+    tradeActions$: Observable<TradeAction[]>;
     tradeActionList: TradeAction[];
     selectedCommodity: string = '';
     selectedModel: string = '';
@@ -36,7 +36,7 @@ export class TradeActionTableComponent implements OnInit, AfterViewInit {
         this.selectedCommodity = '';
     }
     ngOnInit(): void {
-        this.tradeActiona$ = this.tradeActionTableService.tradeActions;
+        this.tradeActions$ = this.tradeActionTableService.tradeActions;
         this.tradeActionTableService.loadAll(this.selectedModel, this.selectedCommodity);
     }
 
@@ -50,7 +50,7 @@ export class TradeActionTableComponent implements OnInit, AfterViewInit {
         this.tradeActionTableService.loadAll(this.selectedModel, this.selectedCommodity);
     }
     ngAfterViewInit(): void {
-        this.tradeActiona$.subscribe(tradeActions => {
+        this.tradeActions$.subscribe(tradeActions => {
             this.tradeActionList = tradeActions;
             this.dataSource.data = this.tradeActionList;
             this.dataSource.paginator = this.paginator;
