@@ -57,12 +57,3 @@ export class TradeActionTableComponent implements OnInit, AfterViewInit {
         });
     }
 }
-
-const ELEMENT_DATA: TradeAction[] = [
-    { price: 1, newTradeAction: 1, commodityName: 'test', commodityModelName: 'ok' },
-    { price: 1, newTradeAction: 1, commodityName: 'test', commodityModelName: 'ok' },
-    { price: 1, newTradeAction: 1, commodityName: 'test', commodityModelName: 'ok' },
-    { price: 1, newTradeAction: 1, commodityName: 'test', commodityModelName: 'ok' },
-    { price: 1, newTradeAction: 1, commodityName: 'test', commodityModelName: 'ok' },
-    { price: 1, newTradeAction: 1, commodityName: 'test', commodityModelName: 'ok' }
-];

@@ -118,9 +118,21 @@
               "devServerTarget": "AADashboard:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "AADashboard"
+  "defaultProject": "AADashboard",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

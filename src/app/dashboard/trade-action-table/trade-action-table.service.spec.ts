@@ -5,18 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { TradeActionTableService } from './trade-action-table.service';
 import { TradeAction } from '../trade-action-model';
 import { AuthenticationService } from 'src/app/shared';
-// describe('DashboardDataService', () => {
-//   let service: DashboardDataService;
-
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({});
-//     service = TestBed.inject(DashboardDataService);
-//   });
-
-//   it('should be created', () => {
-//     expect(service).toBeTruthy();
-//   });
-// });
 
 const tradeActions: Partial<TradeAction>[] = [{ price: 1, commodityName: 'Gold' }, { price: 2, commodityName: 'Oil' }];
 

@@ -1,5 +1,4 @@
-import { Indicators } from "./Indicators/indicators-model";
-import { TradeAction } from "./trade-action-model";
+import { Indicators } from './Indicators/indicators-model';
 
 export interface Dashboard {
     indicators: Indicators;
