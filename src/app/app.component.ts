@@ -15,12 +15,14 @@ export class AppComponent {
             if (x === true) {
                 this.authorized = true;
                 this.username = localStorage.getItem('username') as string;
+            } else {
+                this.authorized = false;
             }
         });
     }
     login(): void {
-        this.authenticationService.login().subscribe(x=>{
-             location.reload();
+        this.authenticationService.login().subscribe(x => {
+            location.reload();
         });
 
     }
